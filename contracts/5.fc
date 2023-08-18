@@ -23,19 +23,21 @@
 
   ;; Fast forward to the Nth element.
   repeat(n) {
+    int f0_new = f1;
     ;; F1 = F0 + F1;
     f1 = f0 + f1;
     ;; F0 = F1;
-    f0 = f1 - f0;
+    f0 = f0_new;
   }
 
   tuple seq = empty_tuple();
   repeat(k) {
     seq~tpush(f0);
+    int f0_new = f1;
     ;; F1 = F0 + F1;
     f1 = f0 + f1;
     ;; F0 = F1;
-    f0 = f1 - f0;
+    f0 = f0_new;
   }
 
   return seq;
