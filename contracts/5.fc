@@ -16,7 +16,7 @@
 () recv_internal() {
 }
 
-;; testable
+;; testabl
 (tuple) fibonacci_sequence (int n, int k) method_id {
   int f0 = 0;
   int f1 = 1;
