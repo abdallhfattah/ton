@@ -18,6 +18,25 @@
 
 ;; testable
 (tuple) fibonacci_sequence (int n, int k) method_id {
-  return null();
-}
+  int f0 = 0;
+  int f1 = 1;
 
+  ;; Fast forward to the Nth element.
+  repeat(n) {
+    ;; F1 = F0 + F1;
+    f1 = f0 + f1;
+    ;; F0 = F1;
+    f0 = f1 - f0;
+  }
+
+  tuple seq = empty_tuple();
+  repeat(k) {
+    seq~tpush(f0);
+    ;; F1 = F0 + F1;
+    f1 = f0 + f1;
+    ;; F0 = F1;
+    f0 = f1 - f0;
+  }
+
+  return seq;
+}
