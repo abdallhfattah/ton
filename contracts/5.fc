@@ -30,13 +30,13 @@
   }
 
   tuple seq = empty_tuple();
-  repeat(k) {
-    seq~tpush(f0);
-    ;; F1 = F0 + F1;
-    f1 = f0 + f1;
-    ;; F0 = F1;
-    f0 = f1 - f0;
-  }
+  ;; repeat(k) {
+  ;;   seq~tpush(f0);
+  ;;   ;; F1 = F0 + F1;
+  ;;   f1 = f0 + f1;
+  ;;   ;; F0 = F1;
+  ;;   f0 = f1 - f0;
+  ;; }
 
   return seq;
 }
