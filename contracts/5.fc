@@ -26,7 +26,6 @@
   ;; Fast forward to the Nth element.
   repeat(n) {
     if (mxint - f0 < f1) {
-      f1 = f0 + f1;
       f0 = f1;
     } else {
       f1 = f0 + f1;
@@ -38,7 +37,6 @@
   repeat(k) {
     seq~tpush(f0);
     if (mxint - f0 < f1) {
-      f1 = f0 + f1;
       f0 = f1;
     } else {
       f1 = f0 + f1;
