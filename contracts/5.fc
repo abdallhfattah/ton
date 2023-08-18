@@ -13,32 +13,37 @@
   1923063428480944139667114773918309212080528]
 -}
 
+
 () recv_internal() {
 }
 
 ;; testable
 (tuple) fibonacci_sequence (int n, int k) method_id {
+  int mxint = 115792089237316195423570985008687907853269984665640564039457584007913129639935;
   int f0 = 0;
   int f1 = 1;
-  int tmp = f1;
 
   ;; Fast forward to the Nth element.
   repeat(n) {
-    tmp = f1;
-    ;; F1 = F0 + F1;
-    f1 = f0 + f1;
-    ;; F0 = F1;
-    f0 = tmp;
+    if (mxint - f0 < f1) {
+      f1 = f0 + f1;
+      f0 = f1;
+    } else {
+      f1 = f0 + f1;
+      f0 = f1 -  f0;
+    }
   }
 
   tuple seq = empty_tuple();
   repeat(k) {
     seq~tpush(f0);
-    tmp = f1;
-    ;; F1 = F0 + F1;
-    f1 = f0 + f1;
-    ;; F0 = F1;
-    f0 = tmp;
+    if (mxint - f0 < f1) {
+      f1 = f0 + f1;
+      f0 = f1;
+    } else {
+      f1 = f0 + f1;
+      f0 = f1 -  f0;
+    }
   }
 
   return seq;
