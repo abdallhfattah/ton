@@ -29,7 +29,7 @@
     f0 = f1 - f0;
   }
 
-  tuple seq = null();
+  tuple seq = empty_table();
   repeat(k) {
     seq~tpush(f0);
     ;; F1 = F0 + F1;
